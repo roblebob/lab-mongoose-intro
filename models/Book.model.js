@@ -11,7 +11,11 @@ const bookSchema = new Schema({
   quantity: { type: Number, min: 0, default: 0 },
   lastPublished: { type: Date, default: Date.now },
   genre: { type: String, enum: ["romance", "fiction", "biography", "poetry"] },
-  author: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "Author",
+    required: true,
+  },
 });
 
 // CREATE MODEL
